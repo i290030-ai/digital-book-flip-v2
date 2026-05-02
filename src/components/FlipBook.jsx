@@ -153,7 +153,7 @@ export default function FlipBook({ chapters }) {
           <div className="page-inner">
             <div className="page-header">
               <div className="chapter-number">פרק {chapter.id}</div>
-              <h1 className="chapter-title">{chapter.title}</h1>
+              <h1 className="chapter-title" key={displayPage}>{chapter.title}</h1>
               <h2 className="chapter-subtitle">{chapter.subtitle}</h2>
               <div className="page-divider" />
             </div>
@@ -168,6 +168,13 @@ export default function FlipBook({ chapters }) {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="progress-bar-wrap">
+        <div
+          className="progress-bar-fill"
+          style={{ width: `${((currentPage + 1) / chapters.length) * 100}%` }}
+        />
       </div>
 
       <div className="nav-buttons">
